@@ -3,7 +3,7 @@
 // átlója végpontjait az aktuális, illetve a megelőző kattintás pontjai adják!
 // Futásidő alatt parkettázza az előző feladatban leírt módon megadott téglalappal a grafikus ablakot!
 
-int count;
+int countClicks;
 int prevMouseX, prevMouseY;
 
 void setup() {
@@ -32,21 +32,26 @@ void parquet(int x1, int y1, int x2, int y2) {
   int startX = ((x1<x2)?x1:x2) - countLeft * sizeX;  
   int startY = ((y1<y2)?y1:y2) - countTop * sizeY;
   
+  int countRows = 0;
+  int tmpStartX;
   do {
-    int tmpStartX = startX;
+    // tmpStartX = startX; // nincs vízszintes eltolás
+    tmpStartX = (countRows % 2 == 0) ? startX : startX + sizeX/2; // vízszintes eltolás
+    
     do {
       drawRect(tmpStartX, startY, tmpStartX + sizeX, startY + sizeY);
       tmpStartX += sizeX;
     } while (tmpStartX <= width);
+    
     startY += sizeY;
+    countRows++;
   } while (startY <= height);
-  
 }
 
 void mousePressed() {
-  count++;
+  countClicks++;
 
-  if (count % 2 == 0) {
+  if (countClicks % 2 == 0) {
     parquet(mouseX, mouseY, prevMouseX, prevMouseY);
   }
 
