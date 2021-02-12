@@ -5,6 +5,7 @@
 
 int countClicks;
 int prevMouseX, prevMouseY;
+boolean offset = true; // vízszintes eltolás
 
 void setup() {
   size(640, 480);
@@ -24,7 +25,7 @@ void drawRect(int x1, int y1, int x2, int y2) {
   }   
 }
 
-void parquet(int x1, int y1, int x2, int y2) {  
+void parquet(int x1, int y1, int x2, int y2, boolean offset) {  
   int sizeX = abs(x1-x2);
   int sizeY = abs(y1-y2);
   int countLeft = ceil(((x1<x2)?x1:x2) * 1.0 / sizeX);
@@ -35,8 +36,12 @@ void parquet(int x1, int y1, int x2, int y2) {
   int countRows = 0;
   int tmpStartX;
   do {
-    // tmpStartX = startX; // nincs vízszintes eltolás
-    tmpStartX = (countRows % 2 == 0) ? startX : startX + sizeX/2; // vízszintes eltolás
+    if (offset) {
+      tmpStartX = (countRows % 3 == 0) ? startX : (countRows % 3 == 1) ? startX + sizeX/3 : startX - sizeX/3; // vízszintes eltolás
+      
+    } else {
+      tmpStartX = startX; // nincs vízszintes eltolás
+    }
     
     do {
       drawRect(tmpStartX, startY, tmpStartX + sizeX, startY + sizeY);
@@ -52,7 +57,7 @@ void mousePressed() {
   countClicks++;
 
   if (countClicks % 2 == 0) {
-    parquet(mouseX, mouseY, prevMouseX, prevMouseY);
+    parquet(mouseX, mouseY, prevMouseX, prevMouseY, offset);
   }
 
   prevMouseX = mouseX;
