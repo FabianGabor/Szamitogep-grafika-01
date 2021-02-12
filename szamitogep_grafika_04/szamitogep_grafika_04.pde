@@ -24,10 +24,18 @@ void drawRect(int x1, int y1, int x2, int y2) {
   }   
 }
 
-void parquet(int x1, int y1, int x2, int y2) {
-  drawRect(x1, y1, x2, y2);
-  int countX = width / abs(x1-x2);
-  println(countX);
+void parquet(int x1, int y1, int x2, int y2) {  
+  int sizeX = abs(x1-x2);  
+  int countLeft = ceil(((x1<x2)?x1:x2) * 1.0 / sizeX);
+  int startX = ((x1<x2)?x1:x2) - countLeft * sizeX;  
+      
+  int countX = 0;
+  do {
+    drawRect(startX, y1, startX + sizeX, y2);
+    startX += sizeX;
+    countX++;
+  } while (startX <= width);
+  print("countX: " + countX);
 }
 
 void mousePressed() {
