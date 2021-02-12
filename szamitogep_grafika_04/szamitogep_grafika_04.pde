@@ -5,7 +5,7 @@
 
 int countClicks;
 int prevMouseX, prevMouseY;
-boolean offset = true; // vízszintes eltolás
+boolean offset = true; // vízszintes eltolás 1/3 arányban
 
 void setup() {
   size(640, 480);
