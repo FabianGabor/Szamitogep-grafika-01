@@ -58,6 +58,9 @@ void mousePressed() {
 
   if (countClicks % 2 == 0) {
     parquet(mouseX, mouseY, prevMouseX, prevMouseY, offset);
+    countClicks = 0;
+  } else {
+    background(204); // töröljük a képernyőt
   }
 
   prevMouseX = mouseX;
