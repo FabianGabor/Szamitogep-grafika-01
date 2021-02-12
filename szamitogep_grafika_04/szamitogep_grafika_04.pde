@@ -37,8 +37,7 @@ void parquet(int x1, int y1, int x2, int y2, boolean offset) {
   int tmpStartX;
   do {
     if (offset) {
-      tmpStartX = (countRows % 3 == 0) ? startX : (countRows % 3 == 1) ? startX + sizeX/3 : startX - sizeX/3; // vízszintes eltolás
-      
+      tmpStartX = (countRows % 3 == 0) ? startX : (countRows % 3 == 1) ? startX + sizeX/3 : startX - sizeX/3; // vízszintes eltolás    
     } else {
       tmpStartX = startX; // nincs vízszintes eltolás
     }
