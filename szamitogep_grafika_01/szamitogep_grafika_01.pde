@@ -1,3 +1,5 @@
+// Futásidő alatt egérkattintásra jelenjen meg az aktuális pontra illeszkedő, ablak oldalaival párhuzamos egyenespár!
+
 void setup() {
   size(640,480);
 }
