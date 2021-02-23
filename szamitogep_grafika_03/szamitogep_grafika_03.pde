@@ -1,3 +1,6 @@
+/* Fábián Gábor
+ * CXNU8T
+ */
 // Futásidő alatt minden második egérkattintásra jelenjen meg az a téglalap, 
 // mely oldalai párhuzamosak a grafikus ablak oldalaival, 
 // átlója végpontjait az aktuális, illetve a megelőző kattintás pontjai adják!

@@ -1,3 +1,6 @@
+/* Fábián Gábor
+ * CXNU8T
+ */
 // Futásidő alatt egérkattintásra jelenjen meg az aktuális pontra illeszkedő, ablak oldalaival párhuzamos egyenespár!
 
 void setup() {

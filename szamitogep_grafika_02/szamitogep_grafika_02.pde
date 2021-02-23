@@ -1,3 +1,6 @@
+/* Fábián Gábor
+ * CXNU8T
+ */
 // Futásidő alatt minden második egérkattintásra jelenjenek meg az aktuális, 
 // illetve a megelőző kattintás pontjaira illeszkedő, ablak oldalaival párhuzamos egyenespárok!
 
